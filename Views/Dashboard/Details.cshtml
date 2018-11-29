@@ -1,0 +1,41 @@
+@model Codex.Models.Task
+
+<div class="clearfix">
+    <p class="display-4 float-left">Task Details</p>
+    <a asp-action="Index" class="back-arrow float-right"><i class="fas fa-arrow-left" title="Back"></i></a>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <h4>@Html.DisplayNameFor(model => model.Title)</h4>
+        <p>@Html.DisplayFor(model => model.Title)</p>
+    </div>
+    <div class="col-md-3">
+        <h4>@Html.DisplayNameFor(model => model.Status)</h4>
+        <p>@Html.DisplayFor(model => model.Status)</p>
+    </div>
+    <div class="col-md-3">
+        <h4>@Html.DisplayNameFor(model => model.Priority)</h4>
+        <p>@Html.DisplayFor(model => model.Priority)</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>@Html.DisplayNameFor(model => model.Type)</h4>
+        <p>@Html.DisplayFor(model => model.Type)</p>
+    </div>
+    <div class="col-md-6">
+        <h4>Assigned To</h4>
+        <p>@Html.DisplayFor(model => model.Employee.Name)</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>@Html.DisplayNameFor(model => model.Details)</h4>
+        <p>@Html.DisplayFor(model => model.Details)</p>
+    </div>
+</div>

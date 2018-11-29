@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Codex.Models.Task>
+
+<div class="row">
+    <div class="col-md-4">
+		<h3>Tasks</h3>
+        <table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Days to Due</th>
+					<th class="text-center">Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				@{
+					foreach (var item in Model) {
+						var days = (item.DueDate - DateTime.Now).Days;
+
+						if (days <= 2)
+						{
+							<tr>
+								<td>@Html.DisplayFor(modelItem => item.Title )</td>
+								<td>
+									<i class="fas fa-circle" style="color:#FF2A00"></i>
+									@Html.DisplayFor(modelItem => (item.DueDate - DateTime.Now).Days)
+								</td>
+								<td class="text-center">
+									<a asp-action="Details" asp-route-id="@item.TaskId"><i class="fas fa-list-alt" title="Details"></i></a>
+								</td>
+							</tr>
+						} else if(days <= 5) {
+							<tr>
+								<td>@Html.DisplayFor(modelItem => item.Title )</td>
+								<td>
+									<i class="fas fa-circle" style="color:#FFB539"></i>
+									@Html.DisplayFor(modelItem => (item.DueDate - DateTime.Now).Days)
+								</td>
+								<td class="text-center">
+									<a asp-action="Details" asp-route-id="@item.TaskId"><i class="fas fa-list-alt" title="Details"></i></a>
+								</td>
+							</tr>
+						} else {
+							<tr>
+								<td>@Html.DisplayFor(modelItem => item.Title )</td>
+								<td>
+									<i class="fas fa-circle" style="color:#1D97E3"></i>
+									@Html.DisplayFor(modelItem => (item.DueDate - DateTime.Now).Days)
+								</td>
+								<td class="text-center">
+									<a asp-action="Details" asp-route-id="@item.TaskId"><i class="fas fa-list-alt" title="Details"></i></a>
+								</td>
+							</tr>
+						}
+					}
+				}
+			</tbody>
+		</table>	
+    </div>
+    <div class="col-md-8 text-center">
+		<h3>Tasks by Priority</h3>
+        <div id="canvas-holder">
+            <canvas id="tasks-priority"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+		var config = {
+			type: 'doughnut',
+			data: {
+				datasets: [{
+					data: [
+						@ViewBag.highTasksCount,
+                        @ViewBag.mediumTasksCount,
+                        @ViewBag.lowTasksCount
+					],
+					backgroundColor: [
+						'#FF2A00',
+						'#FFB539',
+                        '#1D97E3'
+						
+					],
+					label: 'Tasks'
+				}],
+				labels: [
+					'Hight',
+					'Medium',
+					'Low',
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'top',
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+		};
+
+        window.onload = function() {
+			var ctx = document.getElementById('tasks-priority').getContext('2d');
+			window.myDoughnut = new Chart(ctx, config);
+		};
+</script>
+
