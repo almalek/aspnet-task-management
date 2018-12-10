@@ -12,10 +12,10 @@
 ![alt text](https://github.com/moElhaj/aspnet-task-management/blob/master/readme/task_pri.JPG)
 
 
-![alt text](https://github.com/moElhaj/aspnet-task-management/master/readme/create_task.JPG)
+![alt text](https://github.com/moElhaj/aspnet-task-management/blob/master/readme/create_task.JPG)
 
 
-![alt text](https://github.com/moElhaj/aspnet-task-management/master/readme/tasks_table.JPG)
+![alt text](https://github.com/moElhaj/aspnet-task-management/blob/master/readme/tasks_table.JPG)
 
 
-![alt text](https://github.com/moElhaj/aspnet-task-management/master/readme/tasks.JPG)
+![alt text](https://github.com/moElhaj/aspnet-task-management/blob/master/readme/tasks.JPG)
