@@ -9,7 +9,7 @@
 <br>
 <br>
 
-![alt text](https://github.com/moElhaj/aspnet-task-management/master/readme/task_pri.JPG)
+![alt text](https://github.com/moElhaj/aspnet-task-management/blob/master/readme/task_pri.JPG)
 
 
 ![alt text](https://github.com/moElhaj/aspnet-task-management/master/readme/create_task.JPG)
